@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RemoteDiagnosisServiceService } from '../remote-diagnosis-service.service';
 
 @Component({
   selector: 'app-remote-diagnosis',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RemoteDiagnosisComponent implements OnInit {
 
-  constructor() { }
+  public RemoteDiagnosis: any = [];
+  _object= Object;
+  constructor(private service:RemoteDiagnosisServiceService) { }
 
   ngOnInit() {
+    this.getRemoteDiagnosisData();
+  }
+
+  getRemoteDiagnosisData(){
+    this.RemoteDiagnosis = this.service.getRemoteDiagnosisServiceData();
   }
 
 }

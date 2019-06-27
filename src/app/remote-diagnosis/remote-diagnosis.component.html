@@ -1,3 +1,30 @@
-<p>
-  remote-diagnosis works!
-</p>
+
+<div style="padding-top:100px;padding-left:100px;">
+ <table style="text-align:center;" border="1">
+     <thead>
+       <tr>
+         <th></th>
+         <ng-container *ngFor="let s of _object.keys(RemoteDiagnosis[0].Data);let a=index;">
+            <th [attr.colspan]="_object.keys(RemoteDiagnosis[0].Data[_object.keys(RemoteDiagnosis[0].Data)[a]]).length" style="text-align:center;">{{_object.keys(RemoteDiagnosis[0].Data)[a]}}</th>      
+          </ng-container>
+       </tr>
+       <tr >
+         <th>TimeStamp</th>  
+         <!--<th >{{_object.keys(RemoteDiagnosis[0].Data)[a]}}</th>-->
+         <ng-container *ngFor="let s of _object.keys(RemoteDiagnosis[0].Data);let a=index;">
+          <th style="text-align:center;width:100px;" *ngFor="let header of _object.keys(RemoteDiagnosis[0].Data[_object.keys(RemoteDiagnosis[0].Data)[a]]);let i=index;">{{header}}</th>      
+        </ng-container>
+        <!-- <th *ngFor="let x of _object.keys(RemoteDiagnosis[0].Data[_object.keys(RemoteDiagnosis[0].Data)[a]]);let i=index;">{{_object.keys(RemoteDiagnosis[0].Data)[1]}}<br/>{{x}}</th>-->
+       </tr>            
+     </thead>
+      <tbody>
+      <tr *ngFor="let d of RemoteDiagnosis;let k=index;">
+    <td>{{RemoteDiagnosis[k].time}}</td>
+    <ng-container *ngFor="let s of _object.keys(RemoteDiagnosis[0].Data);let a=index;">
+    <td *ngFor="let x of _object.keys(RemoteDiagnosis[k].Data[_object.keys(RemoteDiagnosis[0].Data)[a]]);let i=index;">{{  RemoteDiagnosis[k].Data[_object.keys(RemoteDiagnosis[0].Data)[a]][x] }}</td>
+  </ng-container>
+    <!-- <td *ngFor="let x of _object.keys(RemoteDiagnosis[k].Data[_object.keys(RemoteDiagnosis[0].Data)[1]]);let i=index;">{{  RemoteDiagnosis[k].Data[_object.keys(RemoteDiagnosis[0].Data)[1]][x] }}</td> -->
+    </tr>
+     </tbody>  
+    </table> 
+  </div>

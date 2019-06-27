@@ -9,6 +9,8 @@ import { RemoteDiagnosisListComponent } from './remote-diagnosis/remote-diagnosi
 import { RemoteDiagnosisDetailsComponent } from './remote-diagnosis/remote-diagnosis-details/remote-diagnosis-details.component';
 import { RemoteControlComponent } from './remote-control/remote-control.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RemoteDiagnosisServiceService } from './remote-diagnosis-service.service';
 
 const appRoutes: Routes = [
   { path: 'remote-diagnosis', component: RemoteDiagnosisComponent },
@@ -27,12 +29,13 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
     )
 
   ],
-  providers: [],
+  providers: [RemoteDiagnosisServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
