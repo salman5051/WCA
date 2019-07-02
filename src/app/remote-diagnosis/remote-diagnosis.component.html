@@ -1,6 +1,8 @@
 
-<div style="padding-top:100px;padding-left:100px;">
- <table style="text-align:center;" border="1">
+<div class="container"> 
+  <div class="row">
+<div class="table-responsive">
+ <table class ="table  table-striped table-hover table-bordered">
      <thead>
        <tr>
          <th></th>
@@ -12,7 +14,7 @@
          <th>TimeStamp</th>  
          <!--<th >{{_object.keys(RemoteDiagnosis[0].Data)[a]}}</th>-->
          <ng-container *ngFor="let s of _object.keys(RemoteDiagnosis[0].Data);let a=index;">
-          <th style="text-align:center;width:100px;" *ngFor="let header of _object.keys(RemoteDiagnosis[0].Data[_object.keys(RemoteDiagnosis[0].Data)[a]]);let i=index;">{{header}}</th>      
+          <th  *ngFor="let header of _object.keys(RemoteDiagnosis[0].Data[_object.keys(RemoteDiagnosis[0].Data)[a]]);let i=index;">{{header}}</th>      
         </ng-container>
         <!-- <th *ngFor="let x of _object.keys(RemoteDiagnosis[0].Data[_object.keys(RemoteDiagnosis[0].Data)[a]]);let i=index;">{{_object.keys(RemoteDiagnosis[0].Data)[1]}}<br/>{{x}}</th>-->
        </tr>            
@@ -28,3 +30,5 @@
      </tbody>  
     </table> 
   </div>
+</div>
+</div>

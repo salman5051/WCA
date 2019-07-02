@@ -11,7 +11,7 @@ import {  AlertService } from '../services/alert.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+  loginForm : FormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
@@ -54,8 +54,7 @@ export class LoginComponent implements OnInit {
       error=>{
         this.alertService.error(error);
         this.loading=false;
-      });
-    )
+      });    
   }
 
 }

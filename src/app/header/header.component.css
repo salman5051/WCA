@@ -1,0 +1,22 @@
+.navbar a {
+    float: left;
+    font-size: 16px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: 	rgb(243, 239, 235);
+    color: black;
+  }
+
+  .selected {
+    background-image: linear-gradient(silver 45%, rgb(202, 202, 198));
+}
+
+.grad {
+    background-image: linear-gradient(to bottom right, rgb(34, 33, 80), rgb(182, 181, 176));
+  }
+  

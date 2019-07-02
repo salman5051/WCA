@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
+import { appRoutingModule } from './app.routing';
+import { JwtInterceptor, ErrorInterceptor } from './helpers';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { RemoteDiagnosisComponent } from './remote-diagnosis/remote-diagnosis.component';
@@ -9,33 +12,30 @@ import { RemoteDiagnosisListComponent } from './remote-diagnosis/remote-diagnosi
 import { RemoteDiagnosisDetailsComponent } from './remote-diagnosis/remote-diagnosis-details/remote-diagnosis-details.component';
 import { RemoteControlComponent } from './remote-control/remote-control.component';
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RemoteDiagnosisServiceService } from './remote-diagnosis-service.service';
-
-const appRoutes: Routes = [
-  { path: 'remote-diagnosis', component: RemoteDiagnosisComponent },
-  { path: 'remote-control', component: RemoteControlComponent }
-]
-
+import { AlertComponent } from './components/alert/alert.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    HeaderComponent,    
     RemoteDiagnosisComponent,
     RemoteDiagnosisListComponent,
     RemoteDiagnosisDetailsComponent,
     RemoteControlComponent,
-    LoginComponent
+    LoginComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(
-      appRoutes,
-    )
-
+    appRoutingModule,
   ],
-  providers: [RemoteDiagnosisServiceService],
+  providers: [RemoteDiagnosisServiceService,{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
