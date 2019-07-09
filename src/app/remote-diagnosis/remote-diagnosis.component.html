@@ -1,8 +1,53 @@
 
 <div class="container"> 
-  <div class="row">
+  <div class="row" style="padding-top:25px;">
+      <div class="col-sm">
+          <div class="form-group">
+                      
+          <label for="cabinet">Customer</label>
+          <select class="form-control" id="cabinet">
+            <option>Customer 1</option>
+            <option>Customer 2</option>
+            <option>Customer 3</option>
+            <option>Customer 4</option>
+            <option>Customer 5</option>
+          </select>
+        </div>
+        </div>
+    <div class="col-sm">
+      <div class="form-group">
+                  
+      <label for="cabinet">Cabinet</label>
+      <select class="form-control" id="cabinet">
+        <option>Cabinet 1</option>
+        <option>Cabinet 2</option>
+        <option>Cabinet 3</option>
+        <option>Cabinet 4</option>
+        <option>Cabinet 5</option>
+      </select>
+    </div>
+    </div>
+        <div class="col-sm">
+      <div class="form-group">
+        <label for="fromdate">Date Range</label>
+        <input type="text" id="fromdate"  
+        value="{{ bsRangeValue[0] | date:'yyyy/MM/dd'}} - {{ bsRangeValue[1] | date:'yyyy/MM/dd'}}"
+       bsDaterangepicker [(bsValue)]="bsRangeValue"  class="form-control" />
+     
+        <!-- <input required class="form-control" type="text"  name='dateSelected' id="dateSelected" [(ngModel)]="model.dateSelected" #dateSelected="ngModel" /> -->
+      </div>
+    </div>
+      <div class="col-sm">
+          <div class="form-group">
+              <!-- <button type="submit" class="btn btn-primary" style="margin-top:30px;">Submit</button> -->
+            <button type="button" (click)="getData($event)" class="btn btn-primary" style="margin-top:30px;">Submit</button>
+          </div>
+        </div>
+  </div>
+  
+  <div class="row" *ngIf="isDataAvailable"> 
 <div class="table-responsive">
- <table class ="table  table-striped table-hover table-bordered">
+ <table class ="table  table-striped table-hover table-bordered" > 
      <thead>
        <tr>
          <th></th>
