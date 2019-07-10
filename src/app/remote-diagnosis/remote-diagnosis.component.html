@@ -32,7 +32,7 @@
         <label for="fromdate">Date Range</label>
         <input type="text" id="fromdate"  
         value="{{ bsRangeValue[0] | date:'yyyy/MM/dd'}} - {{ bsRangeValue[1] | date:'yyyy/MM/dd'}}"
-       bsDaterangepicker [(bsValue)]="bsRangeValue"  class="form-control" />
+       bsDaterangepicker [(bsValue)]="bsRangeValue" (bsValueChange)="getData($event)"  class="form-control" />
      
         <!-- <input required class="form-control" type="text"  name='dateSelected' id="dateSelected" [(ngModel)]="model.dateSelected" #dateSelected="ngModel" /> -->
       </div>
