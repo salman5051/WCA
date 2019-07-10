@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RemoteDiagnosisServiceService {
-	dates;
+	
   constructor(private http: HttpClient) { }
   getRemoteDiagnosisServiceData(){
 	  
