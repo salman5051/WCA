@@ -24,12 +24,12 @@ export class DefaultPageComponent implements OnInit {
     'performance':'30'}];
     this.HighPerformanceCabinets=[{
       'cabinetId':'4',
-      'performance':'60',
+      'performance':'100',
     
     },{'cabinetId':'5',
-    'performance':'80'},
+    'performance':'98'},
     {'cabinetId':'6',
-    'performance':'90'}];
+    'performance':'94'}];
     this.WatchList=[{
       'cabinetId':'2',
       'performance':'40',
