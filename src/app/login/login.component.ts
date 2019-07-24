@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       private authenticationService: AuthenticationserviceService,
       private alertService: AlertService){
         if(this.authenticationService.currentUserValue){
-          this.router.navigate(['/']);
+          this.router.navigate(['/home']);
         }
 
   }
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.returnUrl =  this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl =  this.route.snapshot.queryParams['returnUrl'] || '/home';
 
   }
 
