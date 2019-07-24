@@ -1,0 +1,56 @@
+ <div class="row" style="margin-top:15px;">
+ <div class="col-sm-12 list-title">
+   <span>Low Performance</span>
+ </div>
+
+ <div *ngFor="let s of LowPerformanceCabinets; let a=index" class="col-sm-4">
+  <circle-progress
+  [percent]="s.performance"
+  [radius]="100"
+  [outerStrokeWidth]="16"
+  [innerStrokeWidth]="8"
+  [outerStrokeColor]="'#78C000'"
+  [innerStrokeColor]="'#C7E596'" 
+  [animationDuration]="300"
+  [lazy]="false"
+></circle-progress><br/>
+<span style="margin-left:80px;">Cabinet Id : {{s.cabinetId}}</span>
+ 
+ </div>
+ </div>
+ <div class="row" style="margin-top:20px;">
+  <div class="col-sm-12 list-title">
+    <span>High Performance</span>
+  </div>
+  <div *ngFor="let s of HighPerformanceCabinets; let a=index" class="col-sm-4">
+    <circle-progress
+    [percent]="s.performance"
+    [radius]="100"
+    [outerStrokeWidth]="16"
+    [innerStrokeWidth]="8"
+    [outerStrokeColor]="'#78C000'"
+    [innerStrokeColor]="'#C7E596'" 
+    [animationDuration]="300"
+    [lazy]="false" 
+  ></circle-progress><br/>
+  <span style="margin-left:80px;">Cabinet Id : {{s.cabinetId}}</span>
+   </div>
+ </div>
+ <div class="row" style="margin-top:20px;">
+<div class="col-sm-12 list-title">
+  <span>Watch List</span>
+</div>  <div *ngFor="let s of WatchList; let a=index" class="col-sm-4">
+  <circle-progress
+  [percent]="s.performance"
+  [radius]="100"
+  [outerStrokeWidth]="16"
+  [innerStrokeWidth]="8"
+  [outerStrokeColor]="'#78C000'"
+  [innerStrokeColor]="'#C7E596'" 
+  [animationDuration]="300"
+  [lazy]="false"
+></circle-progress><br/>
+<span style="margin-left:80px;">Cabinet Id : {{s.cabinetId}}</span>
+ 
+ </div>
+ </div>

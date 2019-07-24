@@ -1,9 +1,22 @@
 
 <div class="container"> 
   <div class="row" style="padding-top:25px;">
+    <div class="col-sm-6">
+        <span>Component</span><br/>
+   <div class="lstBox">     
+     <ul>
+     <li *ngFor="let s of components;let a=index; ">
+       <label><input type="checkbox" checked="true" name="{{s}}"  (change)="updateGridView($event)"/>
+        {{s}}
+      </label>
+     </li>
+    </ul>
+   </div>
+    </div>
+  </div>
+  <div class="row" style="padding-top:25px;">
       <div class="col-sm">
-          <div class="form-group">
-                      
+          <div class="form-group">                      
           <label for="cabinet">Customer</label>
           <select class="form-control" id="cabinet">
             <option>Customer 1</option>

@@ -19,7 +19,8 @@ import { AlertComponent } from './components/alert/alert.component';
 
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
-
+import { DefaultPageComponent } from './default-page/default-page.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
  
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
     RemoteDiagnosisDetailsComponent,
     RemoteControlComponent,
     LoginComponent,
-    AlertComponent
+    AlertComponent,
+    DefaultPageComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,15 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
-   
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300, 
+    })
 
   ],
   providers: [RemoteDiagnosisServiceService,{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

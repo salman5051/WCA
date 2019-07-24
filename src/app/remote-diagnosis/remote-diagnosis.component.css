@@ -1,0 +1,11 @@
+ul{
+    list-style-type:none;
+    padding-left:10px;
+}
+.lstBox{
+    border-width:0.5px;
+    border-style:solid;
+    width:180px;
+    overflow:auto;
+    height:200px;
+}

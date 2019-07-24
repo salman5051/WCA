@@ -30,7 +30,8 @@ export class RemoteDiagnosisComponent implements OnInit {
   private bsRangeValue: any = [new Date(this.startDate.setDate(-20)), new Date()];
 
   data: Date;
-
+  components: any=[];
+  selectedComponents: any=[];
   ngOnInit() {
     
   }
@@ -46,11 +47,27 @@ export class RemoteDiagnosisComponent implements OnInit {
 
     this.isDataAvailable= true;
   }
-
+  updateGridView(event){
+   if(event.target.checked){
+     console.log('checked');
+     if(this.selectedComponents.indexOf(event.target.name)<0){
+       this.selectedComponents.push(event.target.name);
+     } 
+   }else{
+    console.log('not checked');
+    if(this.selectedComponents.indexOf(event.target.name)>-1){
+      this.selectedComponents.splice(this.selectedComponents.indexOf(event.target.name),1);
+    } 
+   }
+   console.log(this.selectedComponents);
+  }
    getRemoteDiagnosisData(){
   
     this.RemoteDiagnosis = this.service.getRemoteDiagnosisServiceData();
-    
+    for(var i=0;i<this._object.keys(this.RemoteDiagnosis[0].Data).length;i++){
+      this.components.push(this._object.keys(this.RemoteDiagnosis[0].Data)[i]);
+      this.selectedComponents.push(this._object.keys(this.RemoteDiagnosis[0].Data)[i]);
+    }
     console.log(this.RemoteDiagnosis);
  
   }
