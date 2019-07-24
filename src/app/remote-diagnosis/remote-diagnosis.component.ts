@@ -16,6 +16,8 @@ export class RemoteDiagnosisComponent implements OnInit {
 
   form: FormGroup
   public RemoteDiagnosis: any = [];
+  public Customers: any = [];
+  public Cabinets: any =[];
   _object= Object;
   
   constructor(private formBuilder: FormBuilder, private service:RemoteDiagnosisServiceService) { }
@@ -33,7 +35,17 @@ export class RemoteDiagnosisComponent implements OnInit {
   components: any=[];
   selectedComponents: any=[];
   ngOnInit() {
+    this.service.getCustomers().subscribe((data)=>{
+      this.Customers=data;
+       
+    });
     
+  }
+  onCustomerSelect(value:any){
+    this.service.getCabinets(value).subscribe((data)=>{
+      this.Cabinets=data;
+       
+    });
   }
   getData(value: Date){
    
@@ -41,10 +53,7 @@ export class RemoteDiagnosisComponent implements OnInit {
     this.dateStart = this.data[1];
     console.log(this.dateStart)
     console.log(this.data);
-    this.getRemoteDiagnosisData();
-    
-
-
+    this.getRemoteDiagnosisData(); 
     this.isDataAvailable= true;
   }
   updateGridView(event){

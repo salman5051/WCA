@@ -18,12 +18,9 @@
       <div class="col-sm">
           <div class="form-group">                      
           <label for="cabinet">Customer</label>
-          <select class="form-control" id="cabinet">
-            <option>Customer 1</option>
-            <option>Customer 2</option>
-            <option>Customer 3</option>
-            <option>Customer 4</option>
-            <option>Customer 5</option>
+          <select class="form-control" id="cabinet" (change)="onCustomerSelect($event.target.value)" >
+             <option value="-1">-- Select --</option>
+             <option *ngFor="let c of Customers" value="{{c.CustomerID}}">{{c.CustomerName}}</option>
           </select>
         </div>
         </div>
@@ -32,11 +29,9 @@
                   
       <label for="cabinet">Cabinet</label>
       <select class="form-control" id="cabinet">
-        <option>Cabinet 1</option>
-        <option>Cabinet 2</option>
-        <option>Cabinet 3</option>
-        <option>Cabinet 4</option>
-        <option>Cabinet 5</option>
+         
+        <option *ngFor="let cb of Cabinets" value="{{cb.BeverageCabinetId}}">{{cb.BeverageCabinetName}}</option>
+         
       </select>
     </div>
     </div>
