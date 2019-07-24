@@ -23,20 +23,20 @@ export class DefaultPageComponent implements OnInit {
     {'cabinetId':'3',
     'performance':'30'}];
     this.HighPerformanceCabinets=[{
-      'cabinetId':'1',
+      'cabinetId':'4',
       'performance':'60',
     
-    },{'cabinetId':'2',
+    },{'cabinetId':'5',
     'performance':'80'},
-    {'cabinetId':'3',
+    {'cabinetId':'6',
     'performance':'90'}];
     this.WatchList=[{
-      'cabinetId':'1',
+      'cabinetId':'2',
       'performance':'40',
     
-    },{'cabinetId':'2',
+    },{'cabinetId':'3',
     'performance':'30'},
-    {'cabinetId':'3',
+    {'cabinetId':'9',
     'performance':'40'}];
   }
 
